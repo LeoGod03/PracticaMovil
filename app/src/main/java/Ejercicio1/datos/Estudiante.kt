@@ -3,7 +3,7 @@ package Ejercicio1.datos
 interface Estudiante {
 
     fun calcularPromedioYNota()
-    fun captutrarDatos()
+    fun capturarDatos()
     fun getCalificacion() : Double
     fun getSumaCalificaciones(): Double
     fun getMatricula() : Int
