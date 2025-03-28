@@ -38,7 +38,7 @@ class EvaluandoEstudiante: Estudiante {
         var cal = 0.0
         for(i in 1..getNumeroDeCalificaciones()){
 
-            println("Introduzca calificacion:")
+            println("Introduzca calificacion No $i:")
             cal = readlnOrNull()?.toDoubleOrNull() ?: 0.0
             require(cal in 0.0.. 10.0) {"La calificación debe estar entre el rango de 0 y 10"}
             calificaciones.add(cal)
