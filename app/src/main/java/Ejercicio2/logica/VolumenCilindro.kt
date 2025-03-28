@@ -15,19 +15,21 @@ class VolumenCilindro: Pi, Dimensiones{
         return this.numeroDeELemento
     }
     override fun setNumeroDeElementos(numeroDeELemento: Int) {
-        require(numeroDeELemento>0){"El numero de elemento debe ser mayor a cero"}
+        require(numeroDeELemento>=1000000){"El numero de elemento debe ser mayor o igual a 1000000 (1 millon)"}
         this.numeroDeELemento = numeroDeELemento
     }
+
+    //Funcion para calcular PI
     override fun calcularPI(): Double {
-        var puntosDentroCirculo = 0.0
-        for (i in 0..getNumeroDeElementos()){
-            val x = Math.random()
-            val y = Math.random()
-            if (x.pow(2.0) + y.pow(2.0) <= 1){
-                puntosDentroCirculo++
-            }
+        var piAproximado = 0.0
+        var denominador = 1.0
+        var signo = 1
+        for (i in 1..numeroDeELemento) {
+            piAproximado += (signo * 4) / denominador
+            denominador += 2
+            signo *= -1
         }
-        return 4 * puntosDentroCirculo / getNumeroDeElementos()
+        return piAproximado
     }
     //Dimensiones
     override fun getAltura(): Double {
