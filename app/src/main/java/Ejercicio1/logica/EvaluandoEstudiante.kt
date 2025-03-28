@@ -11,7 +11,7 @@ class EvaluandoEstudiante: Estudiante {
     private var calificaciones: MutableList<Double> = mutableListOf()
     private var nota : String = ""
     override fun calcularPromedioYNota() {
-        captutrarDatos()
+        capturarDatos()
         var suma = 0.0
         for(i in calificaciones){
             suma += i
@@ -28,7 +28,7 @@ class EvaluandoEstudiante: Estudiante {
         imprimirDatos()
     }
 
-    override fun captutrarDatos() {
+    override fun capturarDatos() {
         println("Introduzca nombre del estudiante:")
         setNombre(readlnOrNull()?.takeIf { it.isNotBlank()} ?: "Sin nombre")
         println("Introduzca matrícula:")
@@ -91,11 +91,12 @@ class EvaluandoEstudiante: Estudiante {
         this.nombre = nombre
     }
 
+
     private fun imprimirDatos(){
         println("El nombre del estudiante es: ${getNombre()} con matrícula : ${getMatricula()}")
         println("Número de calificaciones: ${getNumeroDeCalificaciones()}")
         println("Suma de calificaciones: ${getSumaCalificaciones()}")
-        println("Calificación: ${getCalificacion()}")
+        println(String.format("Calificación %.2f", getCalificacion()))
         println("Nota: $nota")
     }
 
